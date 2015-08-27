@@ -4,12 +4,12 @@ based around javascript object oriented features and in can be long winded. `map
 In some other functional languages, functions are curried or partially applied by default. Since we can't make a major breaking
 change to javascript. I propose the a new operator to partially apply parameters.
 ```
-map:(x => x / 2)
-mapAccum:((a,b) => [a + b, a + b], '0')
+const partMap = map:(x => x / 2)
+const partMapAcc = mapAccum:((a,b) => [a + b, a + b], '0')
 
 // later
-map([1,2,3,4])
-mapAccum(['1', '2', '3', '4'])
+partMap([1,2,3,4])
+partMapAccum(['1', '2', '3', '4'])
 ```
 The colon before the parenthesis means the params are partially applied. It doesn't execute the function. I think other
 operators could work, but the colon feels natural and is pleasing to look at. There may be problems with object literal
@@ -23,7 +23,9 @@ map@(x => x / 2)
 map<-(x => x / 2)
 ```
 
-The operator would be the equivalent of this in ES6, but the `this` wouldn't change or be bounded
+The operator would be the equivalent of this in ES6. The `this` wouldn't change or be bounded
 ```
-map.bind(undefined, x => x / 2)
+function partMap() {
+ return map(x => x / 2, ...arguments);
+}
 ```
