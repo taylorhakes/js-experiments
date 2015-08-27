@@ -29,3 +29,10 @@ That will result in
 ```
 third(second(first(10));
 ```
+
+With the proposed partial application operator
+```
+const arr = [1,2,3];
+arr :> map:(x => x + 1) :> filter:(x => x % 2 === 0) :> reduce:((prev, val) => prev + val, 0)
+// 6
+```
