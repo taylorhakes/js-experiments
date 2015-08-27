@@ -5,11 +5,11 @@ In some other functional languages, functions are curried or partially applied b
 change to javascript. I propose the a new operator to partially apply parameters.
 ```js
 const half = map:(x => x / 2)
-const sumArr = mapAccum:((a,b) => [a + b, a + b], '0')
+const combineStr = mapAccum:((a,b) => [a + b, a + b], '0')
 
 // later
 half([1,2,3,4])
-sumArr(['1', '2', '3', '4'])
+combineStr(['1', '2', '3', '4'])
 ```
 The colon before the parenthesis means the params are partially applied. It doesn't execute the function. I think other
 operators could work, but the colon feels natural and is pleasing to look at. There may be problems with object literal
