@@ -1,6 +1,6 @@
 # Partial Application Operator
 It is very common to use `Function.prototype.bind` in javascript for partial application programming. Unfortunately, it is
-based around javascript object oriented features and in can be long winded. `map.bind(null, x => x / 2)`
+based around javascript object oriented features and it can be long winded. `map.bind(null, x => x / 2)`
 In some other functional languages, functions are curried or partially applied by default. Since we can't make a major breaking
 change to javascript. I propose the a new operator to partially apply parameters.
 ```js
